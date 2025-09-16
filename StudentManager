@@ -1,0 +1,30 @@
+ import java.util.ArrayList;
+import java.util.List;
+
+public class StudentManager {
+    private List<Student> students = new ArrayList<>();
+
+    public void addStudent(String name, int grade) {
+        students.add(new Student(name, grade));
+        System.out.println("Student added successfully.");
+    }
+
+    public void listStudents() {
+        if (students.isEmpty()) {
+            System.out.println("No students found.");
+ } else {
+            for (Student s : students) {
+                System.out.println(s);
+            }
+        }
+    }
+
+    public double calculateAverage() {
+        if (students.isEmpty()) return 0;
+        int total = 0;
+        for (Student s : students) {
+            total += s.getGrade();
+        }
+        return (double) total / students.size();
+    }
+}
