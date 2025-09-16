@@ -1,0 +1,38 @@
+ import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        StudentManager manager = new StudentManager();
+        Scanner scanner = new Scanner(System.in);
+        String command;
+
+        System.out.println("Welcome to the Student Grade Management System");
+
+        while (true) {
+            System.out.println("\nChoose: [add, list, average, exit]");
+            command = scanner.nextLine();
+
+            switch (command) {
+                case "add":
+                    System.out.print("Student name: ");
+                    String name = scanner.nextLine();
+                    System.out.print("Student grade: ");
+                    int grade = Integer.parseInt(scanner.nextLine());
+                    manager.addStudent(name, grade);
+                    break;
+                case "list":
+                    manager.listStudents();
+ break;
+                case "average":
+                    double avg = manager.calculateAverage();
+                    System.out.println("Average grade: " + avg);
+                    break;
+                case "exit":
+                    System.out.println("Goodbye!");
+                    return;
+                default:
+                    System.out.println("Invalid command.");
+            }
+        }
+    }
+}
